@@ -1,0 +1,119 @@
+@prefix lv2:  <http://lv2plug.in/ns/lv2core#>.
+@prefix doap: <http://usefulinc.com/ns/doap#>.
+@prefix epp: <http://lv2plug.in/ns/ext/port-props#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix mod: <http://moddevices.com/ns/modgui#>.
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+
+<http://moddevices.com/plugins/mod-devel/cabsim>
+a lv2:Plugin, lv2:SimulatorPlugin;
+
+doap:name "Cabinet";
+
+doap:developer [
+    foaf:name "Jarno Verheesen";
+    foaf:homepage <>;
+    foaf:mbox <mailto:j.verheesen@hotmail.nl>;
+    ];
+
+doap:maintainer [
+    foaf:name "MOD";
+    foaf:homepage <http://moddevices.com>;
+    foaf:mbox <mailto:jarno@moddevices.com>;
+    ];
+
+    lv2:minorVersion 1;
+    lv2:microVersion 1;
+
+rdfs:comment """
+The MOD cabinet offers some of the most famous guitar cabinets. Each cabinet is based on a real cabinet that is recorded with a microphone.
+Clean players will love the laney 4x10 while rock and metal enthusiasts will find the mesa 4x12 or the orange 2x12 more suiting.
+""";
+
+lv2:port
+[
+    a lv2:AudioPort, lv2:InputPort;
+    lv2:index 0;
+    lv2:symbol "In";
+    lv2:name "Input";
+],
+[
+    a lv2:AudioPort, lv2:OutputPort;
+    lv2:index 1;
+    lv2:symbol "Out";
+    lv2:name "Output";
+],
+[
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 2;
+    lv2:symbol "Attenuation";
+    lv2:name "Attenuation";
+    lv2:default 0;
+    lv2:minimum -90;
+    lv2:maximum 0;
+],
+[
+    a lv2:InputPort, lv2:ControlPort;
+    lv2:index 3;
+    lv2:symbol "Model";
+    lv2:name "Model";
+    lv2:default 0;
+    lv2:minimum 0;
+    lv2:maximum 12;
+    lv2:portProperty lv2:integer;
+    lv2:portProperty lv2:enumeration ;
+    lv2:scalePoint
+    [
+        rdfs:label "Hiwatt 4x12";
+        rdf:value 0
+    ],
+    [
+        rdfs:label "Mesa 4x12 v30's";
+        rdf:value 1
+    ],
+    [
+        rdfs:label "Londoncity 4x12";
+        rdf:value 2
+    ],
+    [
+        rdfs:label "Marshall plexi";
+        rdf:value 3
+    ],
+    [
+        rdfs:label "Orange 2x12";
+        rdf:value 4
+    ],
+    [
+        rdfs:label "Peavey 4x10";
+        rdf:value 5
+    ],
+    [
+        rdfs:label "Bogner 4x12";
+        rdf:value 6
+    ],
+    [
+        rdfs:label "ENGL 4x12";
+        rdf:value 7
+    ],
+    [
+        rdfs:label "Fender Princeton 2x12";
+        rdf:value 8
+    ],
+    [
+        rdfs:label "Friedman 4x12";
+        rdf:value 9
+    ],
+    [
+        rdfs:label "Krank 4x12";
+        rdf:value 10
+    ],
+    [
+        rdfs:label "Laney 2x12";
+        rdf:value 11
+    ],
+    [
+        rdfs:label "Matchless chieftain 2x12";
+        rdf:value 12
+    ]
+].
