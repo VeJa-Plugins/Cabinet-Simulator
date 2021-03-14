@@ -6,19 +6,19 @@
 @prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 
-<http://moddevices.com/plugins/mod-devel/cabsim>
+<http://VeJaPlugins.com/plugins/Release/cabsim>
 a lv2:Plugin, lv2:SimulatorPlugin;
 
 doap:name "Cabinet";
 
 doap:developer [
-    foaf:name "Jarno Verheesen";
+    foaf:name "VeJa Plugins";
     foaf:homepage <>;
     foaf:mbox <mailto:j.verheesen@hotmail.nl>;
     ];
 
 doap:maintainer [
-    foaf:name "MOD";
+    foaf:name "VeJa Plugins";
     foaf:homepage <http://moddevices.com>;
     foaf:mbox <mailto:jarno@moddevices.com>;
     ];
@@ -27,7 +27,7 @@ doap:maintainer [
     lv2:microVersion 1;
 
 rdfs:comment """
-The MOD cabinet offers some of the most famous guitar cabinets. Each cabinet is based on a real cabinet that is recorded with a microphone.
+This cabinet offers some of the most famous guitar cabinets. Each cabinet is based on a real cabinet that is recorded with a microphone.
 Clean players will love the laney 4x10 while rock and metal enthusiasts will find the mesa 4x12 or the orange 2x12 more suiting.
 """;
 

@@ -14,7 +14,7 @@
 #define SIZE 512
 
 //plugin URI
-#define PLUGIN_URI "http://moddevices.com/plugins/mod-devel/cabsim"
+#define PLUGIN_URI "http://VeJaPlugins.com/plugins/Release/cabsim"
 
 //macro for Volume in DB to a coefficient
 #define DB_CO(g) ((g) > -90.0f ? powf(10.0f, (g) * 0.05f) : 0.0f)
