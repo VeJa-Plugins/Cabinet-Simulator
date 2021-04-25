@@ -46,7 +46,7 @@ typedef struct{
     float *oA;
     float *oB;
     float *oC;
-    float *impulseResponse;
+    //float *impulseResponse;
     const float *attenuation;
 } Cabsim;
 /**********************************************************************************************************************************************************/
@@ -86,8 +86,9 @@ static void connect_port(LV2_Handle instance, uint32_t port, void *data)
 void activate(LV2_Handle instance)
 {
     Cabsim* const cabsim = (Cabsim*)instance;
+/*
     cabsim->impulseResponse = (float *) malloc((SIZE)*sizeof(float)); 
-    /*
+
     SF_INFO sndInfo;
     SNDFILE *sndFile = sf_open("/root/.lv2/cabsim.lv2/test2_48000.wav", SFM_READ, &sndInfo);
     int channelsCount = sndInfo.channels;
@@ -147,7 +148,7 @@ void run(LV2_Handle instance, uint32_t n_samples)
     float *oA = cabsim->oA;
     float *oB = cabsim->oB;
     float *oC = cabsim->oC;
-    float *impulseResponse = cabsim->impulseResponse;
+    //float *impulseResponse = cabsim->impulseResponse;
     int model = (int)(*(cabsim->model));
     const float attenuation = *cabsim->attenuation; 
 
@@ -155,16 +156,12 @@ void run(LV2_Handle instance, uint32_t n_samples)
 
     uint32_t i, j, m;
     
-    int multiplier;
+    int multiplier = 1;
 
     if(n_samples == 128)
-    {
         multiplier = 4;
-    }
-    else if (n_samples == 256)
-    {
+    else if(n_samples == 256)
         multiplier = 2;
-    }
 
     //copy inputbuffer and IR buffer with zero padding.
     for ( i = 0; i < n_samples * multiplier; i++)
@@ -172,6 +169,7 @@ void run(LV2_Handle instance, uint32_t n_samples)
         inbuf[i] = (i < n_samples) ? (in[i] * coef * 0.2f): 0.0f;
         IR[i] = (i < n_samples) ? convolK(model,i) : 0.0f;
     }
+
     fftwf_execute(fft);
     fftwf_execute(IRfft);
 

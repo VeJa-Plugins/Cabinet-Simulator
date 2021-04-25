@@ -442,6 +442,9 @@ float convolK(int model, int index)
             case 13:
                   tmpVal = Matchless_chieftain_2x12[index];
                   break;
+            default:
+                  tmpVal = 0.0f;
+                  break;
       }
       return tmpVal;
 }
